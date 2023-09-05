@@ -1,61 +1,6 @@
-// // const url = "https://www.boredapi.com/api/activity";
-// const url = "http://localhost:4000/tickets";
-// const url = 'http://localhost:4000/tickets'
-
-// // async function getTickets() {
-// //     fetch(url, {
-// //                 method: 'get',
-// //                 mode: 'cors'
-// //     })
-// //         .then((response) => {
-// //             return response.json()})
-// //         .catch((err) => console.log(err));
-// // }
-
-// ////////////////////////////////GOLD///////////////////////////////////////
-// // let tickets = fetch(url)
-// //     .then((response) => response.json())
-// //     .then(data => {
-// //         console.log(data)
-
-// //         return data;
-// //     })
-// //     .catch(error => {
-// //         return error;
-// //     });
-
-// async function getTickets() {
-//     try {
-//       const response = await fetch(url);
-//       if (!response.ok) {
-//         throw new Error('Network response was not ok');
-//       }
-//       const data = await response.json();
-//       return data;
-//     } catch (error) {
-//       throw error;
-//     }
-//   }
-  
-//   getTickets()
-//   .then((tickets) => {
-//     console.log(tickets);
-//   })
-//   .catch((error) => {
-//     console.error(error);
-//   });
-  
-
-// async function getTickets(){
-//     const res = await fetch('http://localhost:4000/tickets')
-//     const data = await res.json();
-//     return await data
-// }
-
-
 async function getTickets() {
     try {
-      const response = await fetch('http://localhost:4000/tickets');
+      const response = await fetch('http://localhost:8000/tickets');
       if (!response.ok) {
         console.error(`Network error: ${response.status} - ${response.statusText}`);
         throw new Error('Network response was not ok');
