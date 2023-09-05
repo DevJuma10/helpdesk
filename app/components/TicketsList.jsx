@@ -1,15 +1,21 @@
-import axios from "axios";
+const url = "https://randomuser.me/api/"
+// const url = 'http://localhost:4000/tickets'
 
 async function getTickets() {
-    const response = await axios.get('http://localhost:4000/tickets')
-    return response.json()
-};
-
+    fetch(url, {
+                method: 'get',
+                mode: 'cors'
+    })
+        .then((response) => {
+            return response.json()})
+        .catch((err) => console.log(err));
+}
 
 const TicketsList = async () => {
 
     const tickets = await getTickets();
-    console.log(tickets.length)
+    console.log("/////////////////////////////////////////////////////////")
+    console.log(tickets)
 
   return (
     <>
