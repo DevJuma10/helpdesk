@@ -1,3 +1,24 @@
+import {notFound} from 'next/navigation'
+
+
+//Control what happens when a dynamic segment is visited that was not generated with generateStaticParams.
+export const dynamicParams = true;
+
+
+//The generateStaticParams function can be used in combination with 
+//dynamic route segments to statically generate routes at build time 
+//instead of on-demand at request time
+export async function generateStaticParams() {
+    const res = await fetch('http://localhost:4000/tickets/');
+
+    const tickets = await res.json();
+
+    return tickets.map((ticket) => ({
+        id: ticket.id
+    }))
+}
+
+
 async function getTicket(id) {
     try {
       const response = await fetch(`http://localhost:4000/tickets/${id}`, {
@@ -6,6 +27,7 @@ async function getTicket(id) {
         }
       });
       if (!response.ok) {
+        notFound()
         console.error(`Network error: ${response.status} - ${response.statusText}`);
         throw new Error('Network response was not ok');
       }
