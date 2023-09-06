@@ -13,6 +13,10 @@ import Link from "next/link";
 
 async function getTickets() {
     try {
+
+      await new Promise((resolve) => {
+        setTimeout(resolve,4000)
+      })
       const response = await fetch('http://localhost:4000/tickets', {
         next: {
           revalidate : 0  // Revalidation set to 0 to opt out of active caching
