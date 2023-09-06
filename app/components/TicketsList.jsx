@@ -1,6 +1,6 @@
 async function getTickets() {
     try {
-      const response = await fetch('http://localhost:8000/tickets');
+      const response = await fetch('http://localhost:4000/tickets');
       if (!response.ok) {
         console.error(`Network error: ${response.status} - ${response.statusText}`);
         throw new Error('Network response was not ok');
