@@ -1,6 +1,21 @@
+/**
+ * Fetches ticket data from a specified URL.
+ * 
+ * @returns {Promise<Array>} The fetched ticket data as an array.
+ * @throws {Error} If there is a network error or the response is not ok.
+ * 
+ * @example
+ * const tickets = await getTickets();
+ * console.log(tickets);
+ */
+
 async function getTickets() {
     try {
-      const response = await fetch('http://localhost:4000/tickets');
+      const response = await fetch('http://localhost:4000/tickets', {
+        next: {
+          revalidate : 0  // Revalidation set to 0 to opt out of active caching
+        }
+      });
       if (!response.ok) {
         console.error(`Network error: ${response.status} - ${response.statusText}`);
         throw new Error('Network response was not ok');
@@ -11,6 +26,8 @@ async function getTickets() {
       throw error;
     }
   }
+
+
   
 
   export default async function TicketsList() {
