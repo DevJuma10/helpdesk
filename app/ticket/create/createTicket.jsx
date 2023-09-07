@@ -1,6 +1,6 @@
 "use client"
 
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function CreateTicket() {
@@ -9,6 +9,8 @@ const [title, setTitle] = useState("");
 const [body, setBody] = useState("");
 const [priority, setPriority] = useState("");
 const [isLoading, setIsLoading] = useState(false)
+
+const router = useRouter();
 
 
 const handleSubmit = async (e) => {
@@ -49,7 +51,7 @@ const handleSubmit = async (e) => {
         />
       </label>
       <label>
-        <span>Title:</span>
+        <span>Body:</span>
         <textarea
           required
           onChange={(e) => setBody(e.target.value)}
