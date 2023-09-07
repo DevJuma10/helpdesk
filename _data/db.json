@@ -50,18 +50,11 @@
       "id": "06si4E5"
     },
     {
-      "title": "Contact DevOps",
-      "body": "Developer & Operations Team meeting",
+      "title": "Fix Router",
+      "body": "Redirect to .tickets after ticket creation at /create",
       "priority": "medium",
       "user_email": "oluwamiyo@gmail.com",
-      "id": "kduXFp8"
-    },
-    {
-      "title": "Create Mobile Nav",
-      "body": "Page nav isnt responsive, Suggestion: create mobile nav",
-      "priority": "medium",
-      "user_email": "oluwamiyo@gmail.com",
-      "id": "bNxebBZ"
+      "id": "4AIKR9R"
     }
   ]
 }

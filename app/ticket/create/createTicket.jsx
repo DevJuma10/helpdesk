@@ -1,27 +1,28 @@
 "use client"
 
-import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useRouter } from "next/navigation"
+import { useState } from "react"
 
 export default function CreateTicket() {
+  const router = useRouter()
 
 const [title, setTitle] = useState("");
 const [body, setBody] = useState("");
 const [priority, setPriority] = useState("");
 const [isLoading, setIsLoading] = useState(false)
 
-const router = useRouter();
 
 
 const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
 
+
     const newTicket = {title, body, priority, user_email:'oluwamiyo@gmail.com'};
     console.log(newTicket)
 
     // Persist data to db
-    const res = fetch("http://localhost:4000/tickets", {
+    const res = await fetch("http://localhost:4000/tickets", {
         method: 'POST',
         headers: {
             'Content-Type' : 'application/json'
@@ -29,12 +30,11 @@ const handleSubmit = async (e) => {
         body: JSON.stringify(newTicket),
     })
 
+    console.log(res);
     if (res.status === 201){
-        console.log(res.status)
-        router.refresh();
-        router.push('/tickets')
-    }
-
+      router.refresh();
+        router.push('/ticket')
+    } 
 }
 
 

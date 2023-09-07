@@ -15,7 +15,7 @@ async function getTickets() {
     try {
 
       await new Promise((resolve) => {
-        setTimeout(resolve,4000)
+        setTimeout(resolve,1000)
       })
       const response = await fetch('http://localhost:4000/tickets', {
         next: {
