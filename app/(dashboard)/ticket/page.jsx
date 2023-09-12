@@ -1,5 +1,5 @@
 import React from 'react'
-import TicketsList from '../components/TicketsList'
+import TicketsList from '../../components/TicketsList'
 import { Suspense } from 'react'
 import Loading from '../loading'
 
