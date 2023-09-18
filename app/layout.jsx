@@ -2,7 +2,6 @@ import './globals.css'
 import { Rubik } from 'next/font/google'
 
 // COMPONENTS
-import Navbar from './components/navbar'
 
 const rubik = Rubik({ subsets: ['latin'] })
 
@@ -15,7 +14,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={rubik.className}>
-        <Navbar />
+      
         
         {children}
         
