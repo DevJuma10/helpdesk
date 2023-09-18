@@ -55,6 +55,13 @@
       "priority": "medium",
       "user_email": "oluwamiyo@gmail.com",
       "id": "4AIKR9R"
+    },
+    {
+      "title": "Remove inconsistent paths",
+      "body": "Sort out : \n/(dashboard)/tickets/page\n/(dashboard)/page",
+      "priority": "medium",
+      "user_email": "oluwamiyo@gmail.com",
+      "id": "J5A88Cq"
     }
   ]
 }
