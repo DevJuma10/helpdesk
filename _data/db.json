@@ -76,6 +76,13 @@
       "priority": "high",
       "user_email": "oluwamiyo@gmail.com",
       "id": "zgV9hDA"
+    },
+    {
+      "title": "Page Metadata",
+      "body": "Add dynamic page metadata focus on title of each ticket",
+      "priority": "medium",
+      "user_email": "oluwamiyo@gmail.com",
+      "id": "9pvqgBP"
     }
   ]
 }

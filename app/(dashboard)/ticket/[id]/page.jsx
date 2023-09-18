@@ -18,6 +18,21 @@ export async function generateStaticParams() {
     }))
 }
 
+export async function generateMetadata ( { params }) {
+
+  const id  = params.id
+  const res = await fetch(`http://localhost:4000/tickets/${id}`)
+  const ticket = await res.json()
+
+
+  return {
+
+    title: `HelpDesk | ${ticket.title}`
+  }
+    
+  
+}
+
 
 async function getTicket(id) {
     try {
