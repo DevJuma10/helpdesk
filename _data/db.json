@@ -69,6 +69,13 @@
       "priority": "medium",
       "user_email": "oluwamiyo@gmail.com",
       "id": "kqPzBZi"
+    },
+    {
+      "title": "Custom 404 page",
+      "body": "Resolve error 404 page to point to a custom page instead of pointing to the default NEXTjs page",
+      "priority": "high",
+      "user_email": "oluwamiyo@gmail.com",
+      "id": "zgV9hDA"
     }
   ]
 }
