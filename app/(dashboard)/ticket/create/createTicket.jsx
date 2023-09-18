@@ -30,7 +30,6 @@ const handleSubmit = async (e) => {
         body: JSON.stringify(newTicket),
     })
 
-    console.log(res);
     if (res.status === 201){
       router.refresh();
         router.push('/ticket')

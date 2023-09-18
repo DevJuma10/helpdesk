@@ -83,6 +83,13 @@
       "priority": "medium",
       "user_email": "oluwamiyo@gmail.com",
       "id": "9pvqgBP"
+    },
+    {
+      "title": "POST Request",
+      "body": "Create post request handler for the /create route",
+      "user_email": "invent@hp.com",
+      "priority": "low",
+      "id": "3Eqgw0d"
     }
   ]
 }
