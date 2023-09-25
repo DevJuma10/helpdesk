@@ -9,7 +9,8 @@ export default function LogoutButton() {
 
     const handleLogout = async () => {
         const supabase = createClientComponentClient()
-        const { error } = supabase.auth.signOut()
+        
+        const { error } = await supabase.auth.signOut()
 
         if(!error){
             router.push("/login")
@@ -22,6 +23,8 @@ export default function LogoutButton() {
     }
 
   return (
-    <button className="btn-primary" onClick={handleLogout}>Logout</button>
+    <button className="btn-primary" onClick={handleLogout}>
+        Logout
+    </button>
   )
 }
