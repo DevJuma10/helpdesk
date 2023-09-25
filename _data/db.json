@@ -90,6 +90,13 @@
       "user_email": "invent@hp.com",
       "priority": "low",
       "id": "3Eqgw0d"
+    },
+    {
+      "title": "Ticket To Supabase",
+      "body": "Testing .....First Ticket addition from to supabase.",
+      "priority": "low",
+      "user_email": "oluwamiyo@gmail.com",
+      "id": "6WeSQR2"
     }
   ]
 }

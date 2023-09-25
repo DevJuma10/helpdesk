@@ -18,11 +18,11 @@ const handleSubmit = async (e) => {
     setIsLoading(true);
 
 
-    const newTicket = {title, body, priority, user_email:'oluwamiyo@gmail.com'};
+    const newTicket = {title, body, priority};
     console.log(newTicket)
 
     // Persist data to db
-    const res = await fetch("http://localhost:4000/tickets", {
+    const res = await fetch("http://localhost:3000/api/ticket", {
         method: 'POST',
         headers: {
             'Content-Type' : 'application/json'
@@ -30,11 +30,19 @@ const handleSubmit = async (e) => {
         body: JSON.stringify(newTicket),
     })
 
-    if (res.status === 201){
-      router.refresh();
-        router.push('/ticket')
-    } 
-}
+  
+    const json = await res.json()
+
+    if(json.error) {
+      console.log(error.message)
+    }
+
+    if (json.data) {
+      router.refresh()
+      router.push('/ticket')
+    }
+  }
+
 
 
   return (
@@ -63,7 +71,8 @@ const handleSubmit = async (e) => {
           onChange={(e) => setPriority(e.target.value)}
           value={priority}
         >
-          <option value="low">Low Priority</option>
+         
+          <option value="low" selected>Low Priority</option>
           <option value="medium">Medium Priority</option>
           <option value="high">High Priority</option>
         </select>
