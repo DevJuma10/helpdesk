@@ -31,7 +31,7 @@ export default function AuthForm( {handleSubmit}) {
             required
             />
         </label>
-        <button className="btn">Submit</button>
+        <button className="btn-primary">Submit</button>
     </form>
   )
 }
