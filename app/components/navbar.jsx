@@ -1,7 +1,10 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import Logo from '../../public/logo.png'
-const Navbar = () => {
+
+import React from 'react'
+
+export default function Navbar( { user }) {
   return (
     <nav>
         <Image 
@@ -14,8 +17,9 @@ const Navbar = () => {
       <h1>Helpdesk</h1>
       <Link href="/">Dashboard</Link>
       <Link href="/ticket">Tickets</Link>
+      {user && <span>Hello, {user.email}</span>}
     </nav>
   )
 }
 
-export default Navbar
+
