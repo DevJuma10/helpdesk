@@ -36,7 +36,7 @@ export default function Login() {
         <AuthForm handleSubmit={handleSubmit} />
 
         {error && (
-          <div className="error">{error}</div>        )}
+          <div className="error">{error}</div>)}
     </main>
   )
 }
