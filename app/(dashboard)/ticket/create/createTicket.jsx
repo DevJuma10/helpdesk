@@ -71,9 +71,9 @@ const handleSubmit = async (e) => {
           onChange={(e) => setPriority(e.target.value)}
           value={priority}
         >
-         
-          <option value="low" selected>Low Priority</option>
-          <option value="medium">Medium Priority</option>
+         <option value="none" hidden>Select Options</option>
+          <option value="low">Low Priority</option>
+          <option value="medium" selected>Medium Priority</option>
           <option value="high">High Priority</option>
         </select>
       </label>
