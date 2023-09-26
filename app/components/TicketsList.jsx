@@ -17,7 +17,7 @@ async function getTickets() {
       await new Promise((resolve) => {
         setTimeout(resolve,1000)
       })
-      const response = await fetch('http://localhost:4000/tickets', {
+      const response = await fetch('http://localhost:3000/api/ticket', {
         next: {
           revalidate : 0  // Revalidation set to 0 to opt out of active caching
         }

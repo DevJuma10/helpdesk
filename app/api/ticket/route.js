@@ -6,40 +6,18 @@ import { cookies } from "next/headers"
 export const dynamic = 'force-dynamic'
 export async function GET(){
 
-    const res = await fetch ('http://localhost:4000/tickets')
-    const tickets = await res.json()
+    const supabase = createRouteHandlerClient({ cookies })
 
-    return NextResponse.json(tickets , {
+    const { data , error } = await supabase
+      .from( 'tickets')
+      .select()
+
+
+    return NextResponse.json( data , {
         status: 200
     })
 
 }
-
-// export async function POST( request ) {
-//     const ticket = await request.json()
-
-//     //get supabase instance
-//     const supabase = createRouteHandlerClient({ cookies})
-
-
-
-//     //get current user session
-//     const {data: { session }} = await supabase.auth.getSession()
-
-//     //insert data into superbase
-//     const {data, error} = await supabase
-//         .from('tickets')
-//         .insert({
-//             ...ticket,
-//             user_email: session.user.email
-//         })
-//         .select()
-//         .single()
-
-        
-//         return NextResponse.json({data, error})
-// }
-
 
 export async function POST(request) {
     const ticket = await request.json()
