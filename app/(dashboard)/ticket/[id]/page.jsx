@@ -1,6 +1,7 @@
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import {notFound} from 'next/navigation'
 import { cookies } from 'next/headers';
+import  DeleteButton   from './DeleteButton';
 
 //Control what happens when a dynamic segment is visited that was not generated with generateStaticParams.
 export const dynamicParams = true;
@@ -26,7 +27,7 @@ export async function generateMetadata ( { params }) {
 
   return {
 
-    title: `HelpDesk | ${ticket?.title || 'Ticket not found'}`
+    title: `HelpDesk | ${ticket?.title || 'Ticket not found'}` 
   }
     
   
@@ -56,12 +57,20 @@ async function getTicket(id) {
 
 export default async function TicketDetails( {params}) {
 
+  const supabase = createServerComponentClient({ cookies })
+  const { data } = await supabase.auth.getSession()
+
     const ticket = await getTicket(params.id)
 
   return (
     <main>
         <nav>
             <h2>Ticket Details</h2>
+            <div className="ml-auto">
+              {data.session.user.email === ticket.user_email && (
+                <DeleteButton id={ticket.id}/>
+              )}
+            </div>
         </nav>
         <div className="card">
             <h3>{ticket.title}</h3>
