@@ -1,4 +1,6 @@
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import Link from "next/link";
+import { cookies } from "next/headers";
 
 /**
  * Fetches ticket data from a specified URL.
@@ -12,29 +14,20 @@ import Link from "next/link";
  */
 
 async function getTickets() {
-    try {
 
-      await new Promise((resolve) => {
-        setTimeout(resolve,1000)
-      })
-      const response = await fetch('http://localhost:3000/api/ticket', {
-        next: {
-          revalidate : 0  // Revalidation set to 0 to opt out of active caching
-        }
-      });
-      if (!response.ok) {
-        console.error(`Network error: ${response.status} - ${response.statusText}`);
-        throw new Error('Network response was not ok');
-      }
-      const data = await response.json();
-      return data;
-    } catch (error) {
-      throw error;
-    }
+  const supabase = createServerComponentClient({ cookies })
+
+  const {data , error} = await supabase
+    .from('tickets')
+    .select()
+
+  if(error) {
+    console.log(error.message)
   }
 
+  return data
+}
 
-  
 
   export default async function TicketsList() {
     try {
