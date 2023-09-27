@@ -1,12 +1,9 @@
-"use client"
-
-import { useState } from "react"
 import { addTicket } from "../actions";
+import SubmitButton from "@/app/components/SubmitButton";
 
 export default function CreateTicket() {
 
 
-const [isLoading, setIsLoading] = useState(false)
 
 
   return (
@@ -39,13 +36,7 @@ const [isLoading, setIsLoading] = useState(false)
           <option value="high">High Priority</option>
         </select>
       </label>
-      <button 
-        className="btn-primary" 
-        disabled={isLoading}
-      >
-      {isLoading && <span>Adding...</span>}
-      {!isLoading && <span>Add Ticket</span>}
-    </button>
+      <SubmitButton />
     </form>
     </>
   )
